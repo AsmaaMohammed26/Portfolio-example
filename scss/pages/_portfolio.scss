@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.portfolio {
+    @extend %pageAddress;
+    .category {
+        ul {
+            width: 75%;
+            margin-inline: auto;
+            @include d-flex(){
+                justify-content: space-evenly;
+            };
+            li{
+                min-width: 10%;
+                cursor: pointer;
+            }
+            .active {
+                // text-decoration: underline $primaryColor solid;
+                border-bottom: 5px $primaryColor solid;
+            }
+            img {
+                @include mediaSreen(mobile) {
+                    display: none
+                }
+            }
+        }
+    }
+    .cards {
+        @extend %grid;
+        @extend %pagePadding;
+        .card {
+            padding: $padding;
+            position: relative;
+
+            .card-text{
+                background-color:rgb(252, 250, 250);
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                width: 80%;
+                height:50% ;
+                @include d-flex(center,column);
+                opacity: 0;
+                p{
+                    font-size: 12px;
+                }
+            }
+            &:hover .card-text{
+                opacity: 1;
+            }
+            
+
+            &::before{
+                content: "";
+                background-color: $primaryColor;
+                opacity: 0.8;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                width: 60%;
+                height: 60%;
+                opacity: 0;
+            }
+            &:hover::before{
+                opacity: 0.5;
+            }
+
+        }
+    }
+}

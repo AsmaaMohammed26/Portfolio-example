@@ -1,0 +1,123 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+
+.home {
+    &-top {
+        height: 80vh;
+        background-image: url("../images/hero.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .nav-side {
+            z-index: 100;
+            position: fixed;
+            display: none;
+            right: 0px;
+            top: 0px;
+            background-color: $secondaryColor;
+            width: 30%;
+            height: 100vh;
+
+            i {
+                font-size: 60px;
+                color: $primaryColor;
+                font-weight: 800;
+                padding: 10px;
+                display: block;
+                cursor: pointer;
+            }
+
+            @include mediaSreen(mobile) {
+                width: 100%;
+            }
+
+            @include mediaSreen(md) {
+                width: 50%;
+            }
+
+            ul {
+                font-size: 30px;
+                height: 75vh;
+                @include d-flex(space-around, column, center);
+
+                li {
+                    a {
+                        all: unset;
+                        color: $txtMainColor;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $primaryColor;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .header {
+            height: 70px;
+            position: fixed;
+            z-index: 10;
+            width: 100%;
+            top: 10px;
+            left: 0px;
+            @include d-flex(space-around);
+            @include mediaSreen(mobile){
+                justify-content:space-between;
+                padding-inline: $paddingX;
+            }
+
+            img {
+                background: rgb(255, 255, 255);
+                border-radius: 50%;
+                width: 50px;
+            }
+
+            .hamburgre-icon {
+                width: 50px;
+                height: 50px;
+
+                div {
+                    border-radius: 5px;
+                    width: 100%;
+                    height: 7px;
+                    margin-block: 7px;
+                    background-color: $primaryColor;
+                }
+
+                &:hover div:nth-child(2) {
+                    width: 50%;
+                }
+            }
+
+        }
+
+        .main-text {
+            padding-top: 30vh;
+            height: 80vh;
+            @include d-flex(space-evenly, column, center);
+            color: $txtMainColor;
+            letter-spacing: 5px;
+            text-align: center;
+            p{
+                color: $txtMainColor;
+            }
+        }
+    }
+     &-bottom {
+        height: 50vh;
+        @include d-flex(space-evenly, column );
+        p{
+            color: $txtSecColor;
+            width: 50vw;
+            text-align: center;
+            @include mediaSreen(mobile){
+                width: 80vw;
+            }
+         }
+    }
+}

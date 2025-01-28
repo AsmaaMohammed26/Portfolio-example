@@ -1,0 +1,71 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.services {
+    background-color: $tertiaryColor;
+    @extend %pageAddress;
+    .cards {
+        @extend %grid;
+        padding-inline: 10%;
+        .card
+        {
+           background-color: $txtMainColor;
+           padding: $padding;
+           @include d-flex(space-between,column) {
+               gap: 20px;
+           }
+       }
+    }
+    .skills {
+        @extend %grid;
+        padding-inline: 10%;
+        .skill {
+            background-color: $txtMainColor;
+            font-size: 14px;
+            text-transform: capitalize;
+            text-align: left;
+            padding: $padding;
+            div {
+                background-color: $txtSecColor;
+                border-radius: 2px;
+                margin-bottom: 10px;
+
+                span {
+                    display: block;
+                    background-color: $primaryColor;
+                    height: 5px;
+                   transition: all 1s linear;
+                }
+            }
+        }
+    }
+    .statics {
+        background-color: black;
+        @include d-flex;
+        padding-inline: 10%;
+        gap: 20px;
+        min-height: 25vh;
+        @include mediaSreen(mobile) {
+            padding-block: 20px;
+            @include d-flex() {
+                flex-direction: column;
+            }
+
+        }
+        .static {
+            background-color: $txtMainColor;
+            padding: $padding;
+            flex: 1;
+            @include mediaSreen(mobile) {
+                width:  90%;
+            }
+            p {
+                min-width: 100%;
+                white-space: nowrap;
+            }
+        }
+    }
+
+
+}

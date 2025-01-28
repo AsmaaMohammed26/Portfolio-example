@@ -1,0 +1,30 @@
+@mixin d-flex($horizontal: space-between, $dir: row, $vertical: center,$wrap:wrap) {
+    display: flex;
+    justify-content: $horizontal;
+    flex-direction: $dir;
+    align-items: $vertical;
+    flex-wrap: $wrap; 
+    @content;
+    
+}
+
+@mixin mediaSreen($screen) {
+    @if $screen==mobile {
+        @media (max-width:767px) {
+            @content;
+        }
+    }@else if $screen==md {
+        @media (min-width:768px) and (max-width:991px) {
+            @content;
+        }
+
+    }@else if $screen==lg {
+        @media (min-width:992px) {
+            @content;
+        }
+
+    }@else{
+        @error "not valid media"
+    }
+
+}

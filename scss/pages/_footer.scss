@@ -1,0 +1,92 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+footer {
+    padding-block: 50px;
+    background-color: $secondaryColor;
+    @extend %pagePadding;
+    @extend %grid;
+    margin-bottom: 0px;
+    color: $txtSecColor;
+    .foot-logo {
+        img {
+            background-color: white;
+            width: 40px;
+            border-radius: 50%;
+            align-self: flex-start;
+            margin-bottom: 20px;
+            @include mediaSreen(mobile){
+                align-self: center;
+            }
+            
+        }
+    }
+    a {
+        all: unset;
+        cursor: pointer;
+    }
+    >div:not(:first-child){
+        padding-left: 70px;
+        @include mediaSreen(mobile){
+            padding-left: 0px;
+        }
+    }
+    >div {
+        @include d-flex(space-around, column,start);
+        margin-bottom: 10px;
+        
+ 
+        h4 {
+            font-size: 22px;
+            color: $tertiaryColor;
+            margin-bottom: 20px
+        }
+        @include mediaSreen(mobile){
+            h4{
+                font-size: 26px;
+            }
+            @include d-flex(space-around, column,center);
+            >ul{
+                @include d-flex(space-around, column,center);
+                li{
+                    font-size: 20px;
+                }
+            }
+            p{
+                text-align: center;
+             }
+           
+        }
+    }
+    div>button{
+        width: 90%;
+    }
+
+    .icons ul{
+        @include d-flex;
+        
+        li{
+
+           a{
+            display: block;
+            font-size: 16px;
+            width: 30px;
+            height:30px;
+            margin-block: 5px;
+            border-radius: 50%;
+            background-color: white;
+            margin-inline: 3px;
+            @include d-flex(center);
+            color: $secondaryColor;
+
+           }
+        }
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+
+}

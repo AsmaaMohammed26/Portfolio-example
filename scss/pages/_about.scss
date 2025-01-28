@@ -1,0 +1,84 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.about {
+    position: relative;
+    .back-ground {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        bottom: 15%;
+        z-index: -1;
+        background-color: $primaryColor;
+        @include mediaSreen(mobile){
+            display: none;
+        }
+    }
+   .container {
+        @extend %pageAddress;
+        @extend %pagePadding;
+        .team-person {
+            @extend %grid;
+             .card {
+                box-shadow: 5px 5px 10px 2px rgb(20, 15, 15, 0.5);
+                 .img-container {
+                    position: relative;
+                    img {
+                        width: 100%;
+                    }
+                    h3 {
+                        background-color: $primaryColorTrance;
+                        position: absolute;
+                        width: 100%;
+                        padding-block: 10px;
+                        top: 100%;
+                        translate: 0px -120%
+                    }
+                 }
+             }
+        }
+
+        .about-bottom {
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            @include mediaSreen(lg){
+                grid-template-columns: repeat(2, 1fr);
+                padding-top: 100px;
+            }
+            .about-text {
+                p:first-child {
+                    font-size: 16px;
+                    padding: 50px;
+                    background-color: $secondaryColor;
+                    color: $tertiaryColor;
+                    text-align: left;
+                    @include mediaSreen(mobile){
+                        padding: 10px;
+                        text-align: center;
+                    }
+                }
+                p:last-child {
+                    margin-top: 50px;
+                    @include mediaSreen(mobile){
+                        margin-top: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .about-bottom-right {
+                p {
+                    margin-block: 100px;
+                    @include mediaSreen(mobile){
+                        margin-block: 20px;
+                        text-align: center;
+                    }
+                }
+            }
+         }
+    }
+
+}
